@@ -1,0 +1,20 @@
+Note File		Contents
+---------		--------
+Note1			man, mandb, manconv, cat, tac, rev, whatis, apropos
+Note2			help, type, file, info, which 
+Note3			ls, cd, mv, cp, ln
+Note4			printenv, set, export, alias, shopt, hash
+Note5			locate, find, history
+Note6			grep, sort, wc, head, tail, tee
+Note7			declare, let, test, exit, return, read, clear
+Note8			dpkg, dpkg-deb, dpkg-query, aptitude, apt, apt-get, apt-cache, tar
+Note9			sudo, sudoedit, su, chmod, chdir, chown, chgrp, umask, id, setuid, setgid, passwd
+Note10			ping, tracepath, netstat, ftp, lftp, sftp, wget, get, scp, ssh 
+Note11a			mount, umount, eject, fdisk, fsck, fdformat, mkfs, dd
+Note11b			geniosimage, mkisofs, wodim, md5sum, blkid, lsbl
+Note12			uptime, w, df, du
+Note13a			ps, pstree, vmstat, top, jobs, fg, bg, xload, tload
+Note13b			kill, killall, shutdown, halt/poweroff/ reboot.
+Note14			sort, uniq, diff, comm, patch, cut, paste, join, tr, sed, aspell
+Note_misc		id, apg, time, date, cal, diff, xlogo, lsb_release
+CommandEdit		Line editing, History search, History expansion, history, script

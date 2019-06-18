@@ -1,0 +1,75 @@
+# ps
+
+Syntax:
+-------
+
+
+Description:
+------------
+
+
+Options:
+--------
+
+
+# kill
+
+Syntax:
+-------
+	kill [options] <PID> [...]
+
+Description:
+------------
+	kill sends signal to  processes. The dafault signal is TERM.
+
+Options:
+--------
+	<pid> [...]							Send signal to every pid listed.
+	-/-s [signal]	--signal [signal]	Specify the signal to be sent. Signal can be specified either by name or number.
+	-l				--list [signals]	List signals. If signal names are given, print signal names and vice versa. If nothing is specified,
+										print all the signals with name and number.
+	-L 				--table				List signal names in a nice table.
+
+Some regularly used signals are listed bellow:
+
+	Number		Name		Description
+	------		----		-----------
+	  1			HUP			Hang up.
+	  2			INT			Interrupt. This signal can be sent by ^c.
+	  3			QUIT		Quit.
+	  9			KILL		This signal is directly sent to kernel, which terminates the process immediately. But this is unclean, for the
+							process can't clean up its memory usage.
+	  15		TERM		This is the default. If the process is alive enough to receive the signal, it will terminate.
+	  19		STOP		Pause the process, stop it for a while. This signal is also sent to kernel and thus can't be ignored.
+	  18		CONT		Continue. This will restore a process after STOP signal.
+	  20		TSTP		Terminal stop. This is the signal sent when ^z is pressed. Unlike STOP and KILL, its received by the process.
+	  28		WINCH		Window change, signal to reshape the window.
+
+
+# killall
+
+Syntax:
+-------
+	killall [opts] [proc]
+
+Description:
+------------
+	Send specified signal to all listed processes/process groups.
+
+Options:
+--------
+	-e			--exact			Require an exact match for a very long name.
+	-I			--Ignore-case	Ignore case for process names.
+	-g			--process-group	Kill the process group to which the process belongs.
+	-i			--interactive	Interactively ask for confirmation before killing.
+	-l			--list			List all known signal name.
+	-n			--ns			Match against PID namespace of a given PID.
+	-o			--older-than	Match against any processes older than specified time.
+	-y			--younger-than	Match against any processes younger than specified time.
+	-q			--quiet			Don't complain if a process was not killed.
+	-r			--regex			Interpret process name as regex.
+	-s/-SIGNAL	--signal		Send this signal instead of default SIGTERM.
+	-u			--user			Kill only processes that specified user owns.
+	-v			--verbose		Report if signal was successfully sent.
+	-w			--wait			Wait for all processes to die. However this may cause killall to wait forever!
+	-Z			--context		Specify security context. It is available to SELinux only.

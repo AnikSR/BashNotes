@@ -1,0 +1,46 @@
+# uptime
+
+Syntax:
+-------
+	uptime [options]
+
+Details:
+--------
+	uptime tells how long the system has been running. It prints a one line description:
+
+	[Current time] [How long the system is running] [How many user is logged on] (Average system load at-)[5min] [10min] [15min]
+
+Options:
+--------
+	-p	--pretty	Show uptime in pretty format.
+	-s	--since		Show since when the system is up. Display that in yyyy-mm-dd HH:MM:SS format.
+	-h	--help		Print help information and exit.
+	-v	--version	Print version information and exit.
+
+For example, uptime in current system outputs this for the current time:
+
+	07:55:13 up  1:29,  1 user,  load average: 0.07, 0.06, 0.07
+
+So, the system is running for 1h 29min with one user with a very small average load.
+
+
+# w
+
+Syntax:
+-------
+	w  [opts] [user]
+
+Description:
+------------
+	w displays information about the users currently on the machine and their uses.
+
+Options:
+--------
+	-h	--no-header		Don't print the header.
+	-u	--no-current	Ignore the user name while figuring out the current process and CPU times.
+	-s	--short			Use short format, don't print the login time, JCPU and PCPU.
+	-f	--from			Toggle printing/not printing the from field in case of remote host.
+	-i	--ip-addr		Display IP address instead of hostname in the from field.
+	-o	--old-style		Old style output, print space for idle time less than one minute.
+	-V	--version		Print version information and exit.
+	n/a	--help			Print help text and exit.

@@ -1,0 +1,32 @@
+PS1 = \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
+PS2 = >
+PS4 = +
+
+# PS1 explanation:
+------------------
+\[ = Start of a non printing character sequence.
+\e = ESC : 0x1b - d27 - \033
+\u = Current username.
+\h = Hostname of current machine excluding the trailing the domain name.
+\w = Current working directory.
+\a = ASCII bell.
+\] = End of a non printable character sequence.
+
+\[e]0;<any_code>\a] = Set <any_code> as the title of the terminal. So:
+\[e]0;\u@\h: \w\a]  = Set [User Name]@[Hostname]:[Working directory] as the title of the terminal.
+
+{var:-$value} = If var is not defined, use value.
+{var:+$value} = If var is defined, use value.
+Thus:
+{debian_chroot:+($debian_chroot)} = If debian_chroot is defined then "($debian_chroot)" will be in the prompt. As the code before it specifies
+terminal title, so when debian_chroot is defined, the prompt will begin with ($debian_chroot), such as when using python virtual environment.
+
+\033 = ESC
+\033[00;32m = Normal text, green color.
+\033[01;32m = Bold text, green color.
+\033[00m    = Reset text formatting.
+Thus:
+\[\033[01;32m\]\u@\h\[\033[00m\] = The string <user name>:<hostname> will be in bold, green text. This formatting is limited to this text.
+
+\033[01;34m = Bold text, blue color. Thus:
+\033[01;34m\]\w\[\033[00m\]\$ = Display working directory in bold blue text. End this fromatting with this text, then display '$' in black.

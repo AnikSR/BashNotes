@@ -1,0 +1,53 @@
+# Line editing:
+---------------
+These are for editing the interactive line of command:
+
+^a  			: Jump to the begining of the line.
+^e  			: Jump to the end of the line.
+
+^f/->  			: Move forward one letter.
+^b/<-  			: Move backward one letter.
+
+alt+f/^<-/ESC<-	: Move cursor forward on word.
+alt+b/^->/ESC->	: Move cursor one word reverse.
+
+^u  			: Delete from current cursor location to the beginneing of the line.
+^k				: Delete from current cursor location to the end of the line.
+
+^d				: Delete one character (on cursor).
+ESC+\			: Delete white spaces between two words.
+
+alt+d			: Delete from current cursor location to end of current word.
+alt+backspace	: Delete from current cursor location to beginning of current word.
+ESC+backspace	: Delete upto the first letter of current word.
+
+^+y				: Paste (yank) the deleted (killed) string in current cursor location.
+
+^t				: Interchange the character on cursor with the character before it.
+alt+t			: Interchange the word on cursor with the word before it.
+
+alt+u			: Convert the current word to all uppercase.
+alt+l			: Convert the current word to all lowercase.
+
+# History Search :
+------------------
+^r				: Activate reverse-i-search.
+^p				: Move to the previous history.
+^n				: Move to next history.
+^o				: Execute the current item in the history list and advance to the next one.
+
+alt+<			: Move to the first entry of the history.
+alt+>			: Come back to last history, which is present command line!
+
+# History Expansion:
+--------------------
+!!				: Execute the last command.
+!<n>			: Ececute the <n>th command in history list.
+!<str>			: Execute the last command starting with <str>
+!?<str>			: Execute the last command which contains the string <str>.
+
+
+# history
+
+Syntax:
+-------

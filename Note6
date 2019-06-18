@@ -1,0 +1,18 @@
+# grep
+
+Syntax:
+-------
+	grep [-options] <pattern> [file...]
+
+Description:
+------------
+	grep searches for pattern in each [file]. When no [file] is given, grep recursively searches the working directory and nonrecursively
+searches the standard input. The stdin can also be given as input using '-' for [file]. grep prints the matching lines as output.
+
+Options:
+--------
+	-E	--extended-regexp	Interpret <pattern> as extended regular expression. This can also be invoked using egrep.
+	-F	--fixed-string		Instead of regular expression, treat <pattern> as fixed string seperated by newlines, any of which to
+					be matched. This is also unvoked using fgrep.
+	-G	--basic-regexp		Interpret patter as basic regular expression.
+	-P	--perl-regexp		Interpret the pattern as Perl compatible regular expression.

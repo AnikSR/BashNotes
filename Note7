@@ -1,0 +1,153 @@
+# declare:
+
+Syntax:
+-------
+	declare [-opts] [name=[value]]
+
+Description:
+------------
+	declare and its synonyn typeset declares variable and give then attributes. If no names are given, print all the declared variables
+with their attributes.
+
+Options:
+--------
+	-f	Restrict action or display to function name and definations.
+	-F	Restrict display to function names only.
+	-g	Create global variables when used in a shell function, otherwise ignore.
+	-p	Display the attributes and value of each name.
+
+	Following options sets attributes.
+	-a	To make "name"s indexed array, if supported.
+	-A	To make "name"s associative array, if supported.
+	-i	To make "name"s have integer attribute.
+	-l	To convert "name"s to lowercase on assignment.
+	-u	To convert "name"s to uppercase on assignment.
+	-n	Make "name"s a reference to the variable named by value.
+	-r	Make "name"s readonly.
+	-t	Make "name"s have trace attribute.
+	-x	Make "name"s to export.
+
+declare cleates local variable, but when -g option is used, varibales are created global. Also using '+' instead of '-' infront of options
+turns the attributes off.
+
+
+# let:
+
+syntax:
+-------
+
+
+
+# test:
+
+Syntax:
+-------
+	test  [Expression]
+
+Description:
+------------
+	"test" exits with the status determined by [Expression].
+
+Expressions can be combined to give complex expressions which will evaluated as such:
+
+	( Expression )					If Expression is true, return true.
+	! Expression					If Expression is false, return true.
+	Expression1  -a  Expression2	If Both Expression1 and Expression2 are true, return true.
+	Expression1  -o  Expression2	If Either Expression1 or Expression2 is true, return true.
+
+If [Expression] is empty, called omitted expression, then by default its evaluated to false.
+	
+Expression can be string, integer or file. Each of these types have many type of tests peculiar to them. So there are positional arguments
+specific for these tests. These test syntaxes and positional arguments are given bellow:
+
+	String:
+		-n String			String is of non-zero length.
+		String				Same as "-n String".
+		-z String			String is of zero length.
+		String1 = String2	String1 and String2 are equal.
+		String1 != String2	String1 and String2 are not equal.
+
+	Integer:
+		Int1 -eq Int2		Int1 is equal to Int2.
+		Int1 -ge Int2		Int1 is greater than or equal to Int2.
+		Int1 -gt Int2		Int1 is greater than Int2.
+		Int1 -le Int2		Int1 is less than or equal to Int2.
+		Int1 -lt Int2		Int1 is less than Int2.
+		Int1 -ne Int2		Int1 is not equal to Int2.
+	
+	File:
+		file1 -ef file2		file1 and file2 have the same device and inode number.
+		file1 -nt file2		file1 is newer than file2, that is file1 has been modified after file2 has been.
+		file1 -ol file2		file1 is older than file2 is last modification time.
+
+	File comparison:
+		-e	file	file exists.
+		-b	file	file exists and is block special.
+		-c	file	file exists and is character special.
+		-d	file	file exists and is a directory.
+		-f	file	file exists and is a regular file.
+		-g	file	file exists and is set-group-ID.
+		-u	file	file exists and set-user-ID bit is set.
+		-G	file	file exists and is owned by effective group ID.
+		-O	file	file exists and is owned by effective user ID.
+		-h/-L file	file exists and is a symbolic link.
+		-S	file	file exists and is a socket.
+		-k	file	file exists and has its sticky bits set.
+		-p 	file	file exists and is a named pipe.
+		-r 	file	file exists and read permission is granted.
+		-w	file	file exists and write permission is granted.
+		-x	file	file exists and execute or search permission is granted.
+		-s	file	file exists and has size greater than zero.
+		-t	FD		file descriptor FD is open in a terminal.
+
+Except for -h and -L all the file options dereferences symbolic link.
+
+
+# exit
+
+Syntax:
+-------
+	exit [n]
+
+Description:
+------------
+	Exit the shell/script with status [n]. If [n] isn't given then exit with the return value of the last command executed.
+
+
+# return
+
+Syntax:
+-------
+	return [n]
+
+Description:
+------------
+	Causes a function or sourced script to exit with the return value [n]. If [n] is omitted, exit with the return value of the last executed
+command. 
+
+
+
+# read
+
+Syntax:
+-------
+	read [opts] . . .
+
+Description:
+------------
+	Read a single line from stdin or a file descriptor when specified by -u option.
+
+Options:
+--------
+	-a [ARR]		Assign the words read to the sequencial indices of the array variable [ARR].			
+	-e				Use readline() to obtain the line in an interactive shell.
+	-r				Don't allow backslash to escape anything. The raw mode.
+	-s				Don't echo input coming from terminal.The silent mode.
+	-u FD			Read from file descriptor "FD" instead of stdin.
+	-d [delim]		Spedify custom delimiter [delim] instead of using the default delimiter '\n'.
+	-n [nchars]		Return after reading [nchars] number of characters or if the delimiter character is inserted.
+	-N [nchars]		Return exactly after reading [nchars] number of characters, don't stop at any delimiter. However premature return can
+					happen if EOF or timeout is encountered.
+	-t [time]		Declare timeout and return failur if a complete line hasn't read within [time] seconds. [time] can be a fraction.
+	-p [prompt]		Output the string [prompt] without a trailing newline before attempting to read.
+	-i [text]		Use [text] as the initial text for Readline.

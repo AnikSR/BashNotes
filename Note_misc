@@ -1,0 +1,28 @@
+# xlogo
+
+Description:
+------------
+
+
+
+# lsb_release
+
+Syntax:
+-------
+	lsb_release [opts]
+
+Description:
+------------
+	The lsb_release command provides certain LSB (Linux Standard Base) and distribution specific information.
+
+Options:
+--------
+	-v	--version		Show the version of LSB against which the current installation is compliant. The version is expressed as a colon
+						seperated list of LSB module description.
+	-i	--id			Display distributor's ID.
+	-d	--description	Display the description of currently installed distro.
+	-r	--release		Display the release information of the currently installed distro.
+	-c	--codename		Display the codename of the currently installed distro.
+	-a	--all			Display all the above information.
+	-s	--short			Use the short output format (omitting the header) for any information displayed.
+	-h	--help			Print help text and exit.

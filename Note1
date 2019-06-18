@@ -1,0 +1,146 @@
+# man
+
+Syntax:
+-------
+	man [opt] <section> [regexp]
+
+Description:
+------------
+	man is system's manual pager. man finds out manual page matching each respective [regexp] and displays it using the default pager of
+the system (less in this case). System manual pages are divided into different sections:
+
+     Sections	Manual pages
+     --------	------------
+	1	Executable programs and shell commands.
+	2	System calls.
+	3	Library calls.
+	4	Special files, specially found in /dev.
+	5	File format and conventions such as /etc/passwd
+	6	Games
+	7	Miscellaneous including macro packages and conventions such as man(7).
+	8	System administration command.
+	9	Non-standard kernel routines.
+
+man usually searches all the manual pages for a given [regexp]. But if <section> number is given, then search becomes limited to that section.
+
+Navigation thorugh a man page:
+------------------------------
+	man uses a pager file to display the manual page. In Ubuntu this pager is "less". So these are basically navigation commands of less.
+Some of them are discussed bellow:
+
+	e/^e/j/^n/CR	Forward by one line.
+	y/^y/k/^k/^P	Backward by one line.
+	f/z/^f/^v/space	Forward one window.
+	b/w/^b/ESC-v	Backward by one window.
+	d/^D		Forward half a window.
+	u/^U		backward half a window.
+	ESC-space	Forward by one window by don't stop at end of file.
+	[{(/)}]		Jump to matching closing/opening bracket.
+
+Options:
+--------
+	man has many options regarding mode of viewing, manual page source, man page formatting, encoding, output format for viewing device
+etc. man also depends on various environment variables to record default values regarding these aspects. A few of these, those that seemed 
+interesting are described bellow:
+
+	-f	--whatis			Display a short description like whatis.
+	-k	--apropos			Like aporpos, search for similar commands and return the result.
+	-w	--where --path --location	Don't show the man page, rather print the location of the nroff page.
+	-M path	--manpath=[path]		Specify alternative path to serach for man pages.
+	-S/s lst --section=[list]		List the sections as a comma/colon seperated list like "2-4-7" or "2, 4, 7".
+	-I	--match-case			Search case sensatively for manual pages.
+	n/a	--regex				Show all man pages with their title of any part of description matching the argument as regex.
+	n/a	--wildcard			Show all man pages with their title of any part of description matching the argument as shell
+						style wildcard expansion.
+	n/a	--names-only			If any or both of former two options are used, match only page names and not description.
+	-E encodint	--encoding=<encoding>	Generate output with <encoding> as encoding. UTF-8 is default.
+	-H browser	--html=[browser]	Make groff to produce html output.
+	-t	--troff				Use groff -mandoc to format manual page to stdout. This option is necessary for -H.
+	n/a	--usage				Print a short usage message for man and exit.
+	n/a	--help				Print the help text and exit.
+	-V	--version			Print man version information and exit.
+
+man also uses many environment variables like MANPATH, MANROFFOPT, MANPAGER, BROWSER etc. One or more of these may not be defined in a system.
+man also have spfisticated exit statuses with exit code 0, 1, 2, 3, 16. The man pager for man elaborates on all these. There are other man
+related tools like "manconv" that converts man page encoding or "catman" that update and convert man pages to cat pages that are faster for
+a increased memory size for pages etc.
+
+
+# cat
+
+Syntax:
+-------
+	cat [opts] [files...]
+
+Description:
+------------
+	Concatenate files and print them to stdout. When argument contains no file or "-" read from stdin.
+
+Options:
+--------
+	-v	--show-nonprinting	Use ^ and M- notation, except for linefeed and tab.
+	-E	--show-ends			Display "$" at the end of each line.
+	-T	--show-tabs			Display TAB character as ^I.
+	-A	--show-all			Equivalent ot -vET: display tab with "^I", display linefeed at the end of each line with "$", display rest of
+							non-printable character with ^ and M- notation.
+	-e	n/a					Equivalent ot -vE: display linefeed at the end of each line with "$", display all other
+							non-printing characters using ^ and M- notation.
+	-t	n/a					Equivalent to -vT: display tab characters with "^I" and display all other non-printing characters using ^ and
+							M- notation.
+	-n	--number			Number each output lines.
+	-b	--number-nonblank	Number non-empty output lines. This option overrides -n.
+	-s	--squeeze-blank		Suppress repeated empty output lines.
+	n/a	--help				Print help text and exit.
+	n/a	--version			Output version information and exit.
+
+
+# tac
+
+Syntax:
+-------
+	tac [opt] [files...]
+
+Description:
+------------
+	tac is cat upside down. it writes each file in [files...] to stdout, but prints the last line of each file first and first line last.
+Just like cat, when no argument is given of "-" is given, read from stdin.
+
+Options:
+--------
+	-b	--before	Attach the seperator before instead of after.
+	-r	--regex		Treat the seperator as regular expression.
+	-s<str>	--seperator=str	Use <str> as seperator instead of '\n'.
+	n/a	--help		Display this help text and exit.
+	n/a	--version	Display version information and exit.
+
+
+
+# rev
+
+Syntax:
+-------
+	rev [files...]
+
+Description:
+------------
+	Like cat it reads and concatinates files and prints them to stdout. But rev reverses the character of each line. Just as tac reverses
+the order of lines in a file, rev reverses the order of characters in each line but leaves the line ordering in a file intact.
+
+Options:
+--------
+	-V	--version	Display version information and exit.
+	-h	--help		Display help information and exit.
+
+When stdin is the input source, rev outputs each line reversed on pressing enter. cat and tac in this situation waits for the whole file to
+complete and thus gives output upon EOF. Also rev doesn't detect "-" in argument list as stdin.
+
+
+
+# whatis
+
+Syntax:
+-------
+	whatis [options...] [name]	
+
+Description:
+------------

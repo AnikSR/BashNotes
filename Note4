@@ -1,0 +1,157 @@
+# printenv:
+
+Syntax:
+-------
+	printenv [opt] [variable]
+
+Description:
+------------
+	Print the value of specified environment variable. If no variable is specified, print all the environment variable and their value.
+
+Options:
+--------
+	-0  --null	End each output line with null, not newline.
+	--help		Display the help message and exit.
+	--version	Display version information and exit.
+
+
+# set:
+
+Syntax:
+-------
+	set [opt] [args...]
+
+Description:
+------------
+	set is a shell builtin. Shell options and positional parameters can be set to specified value or their values can be unset using this
+builtin. But when no argument is specified, set prints out all the options.
+
+Options:
+--------
+	-a  Mark variables which are modified or created for export.
+      	-b  Notify of job termination immediately.
+      	-e  Exit immediately if a command exits with a non-zero status.
+      	-f  Disable file name generation (globbing).
+      	-h  Remember the location of commands as they are looked up.
+      	-k  All assignment arguments are placed in the environment for a command, not just those that precede the command name.
+      	-m  Job control is enabled.
+      	-n  Read commands but do not execute them.
+	-p  Turned on whenever the real and effective user ids do not match. Disables processing of the $ENV file and importing of shell
+	    functions.  Turning this option off causes the effective uid and gid to be set to the real uid and gid.
+      	-t  Exit after reading and executing one command.
+      	-u  Treat unset variables as an error when substituting.
+      	-v  Print shell input lines as they are read.
+      	-x  Print commands and their arguments as they are executed.
+      	-B  the shell will perform brace expansion
+      	-C  If set, disallow existing regular files to be overwritten by redirection of output.
+      	-E  If set, the ERR trap is inherited by shell functions.
+      	-H  Enable ! style history substitution.  This flag is on by default when the shell is interactive.
+      	-P  If set, do not resolve symbolic links when executing commands such as cd which change the current directory.
+      	-T  If set, the DEBUG and RETURN traps are inherited by shell functions.
+      	--  Assign any remaining arguments to the positional parameters. If there are none remaining, the positional parameters are unset.
+      	-   Assign any remaining arguments to the positional parameters. The -x and -v options are turned off.
+	-o option-name
+       	    Set the variable corresponding to option-name:
+		allexport    	same as -a
+		notify       	same as -b
+		errexit		same as -e
+              	noglob       	same as -f
+              	hashall		same as -h
+		keyword      	same as -k
+              	monitor      	same as -m
+              	noexec       	same as -n
+              	physical     	same as -P
+              	onecmd       	same as -t
+              	nounset      	same as -u
+              	verbose      	same as -v		
+		xtrace       	same as -x
+		braceexpand  	same as -B
+              	noclobber    	same as -C
+              	errtrace	same as -E
+              	histexpand 	same as -H
+		privileged   	same as -p
+              	functrace	same as -T
+
+		emacs        		Use an emacs-style line editing interface.
+		history      		Enable command history
+              	ignoreeof    		The shell will not exit upon reading EOF
+              	interactive-comments	Allow comments to appear in interactive commands
+		pipefail    		The return value of a pipeline is the status of the last command to exit with a non-zero status, or
+					zero if no command exited with a non-zero status.
+              	posix        		Change the behavior of bash where the default operation differs from the Posix standard to match the 
+					standard.
+
+
+# export:
+
+Syntax:
+-------
+	export [-opt] [name=[value]]
+
+Description:
+------------
+	Make each "name" available in the environment of subsequent processes. If "value" if provided, set "name" to "value" before exporting.
+When no argument is provided, export prints out all the exported variable and function for current environment.
+
+Options:
+--------
+	-f	Refer to shell function.
+	-n	Remove the export property from each "name".
+	-p	Display the list of all exported variables and function. This is the default option when no argument is provided.
+
+
+
+# alias
+
+Syntax:
+-------
+	alias [name]=[value]
+
+Description:
+------------
+	Make "name" the alias for "value". Or if no argument is provided, print the list of all aliases.
+
+Options:
+--------
+	-p	Print all defined alias. Its the dafault option if no argument is provided.
+
+
+# shopt:
+
+Syntax:
+-------
+	shopt [-p/q/s/u] [-o] [optname...]
+
+Description:
+------------
+	Set or unset each shell option specified by [optname...]. When no argument is given, list all shell options with an indication to if
+they are set or unset. shopt = shell option.
+
+Options:
+--------
+	-o	Restrict optnames to those defined for use with 'set -o'.
+	-p	Print each option with an indication of its status.
+	-q	Suppress output.
+	-s	Enable/set each optname.
+	-u	Disable/unset each optname.	
+
+
+# hash
+
+Syntax:
+-------
+	hash [-l/r] -p[pathname] [-d/t][name...]
+	
+Description:
+------------
+	Determine and remember the full path of each [name]. If no argument is given, print the full path of remembered commands.
+
+Options:
+--------
+	-d		Forget the remembered pathname of each [name].
+	-l		Display in a format that can be reused as input.
+	-p [pathname]	Use [pathname] as the full pathname of [name].
+	-r		Forget all remembered location.
+	-t		Print the remembered location of each [name], preceeding each name with corresponding [name] if multiple is given.
+
+hash searches $PATH for each [name] and then adds to the list of remembered command.

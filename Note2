@@ -1,0 +1,17 @@
+#help
+
+Syntax:
+-------
+	help [-d/m/s] <pattern>
+
+Description:
+------------
+	help displays information about builtin commands. If a certain command is specified with <pattern>, help prints detail help text about
+that command or commands matching <pattern>. If no argument is provided, help prints the list of commands for which help text is available.
+
+Options:
+--------
+	-d	Output short description for each topic.
+	-m	Display usage in pseudo-manpage format. Unlike man it doesn't display wiht "less" by default.
+	-s	Output only a short synopsis for each topic matching <pattern>.
+
