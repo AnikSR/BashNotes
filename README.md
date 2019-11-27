@@ -3,5 +3,5 @@ These are my study notes on bash. It mostly on various bash commands, but also o
 
   1. Linux man pages.
   2. The Linux Command Line, A complete introduction by William E. Shotts, Jr. Published 2012
-  3. How Linux Works: What Every Superuser Should Know 2E by Brian Ward.
+  3. How Linux Works: What Every Superuser Should Know 2E by Brian Ward. Published 2015
   4. Various sites on the internet including stackoverflow.com
