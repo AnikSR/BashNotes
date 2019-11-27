@@ -1,0 +1,38 @@
+# variable
+
+# Special Variables:
+
+Positional parameters:
+----------------------
+Positional parameters holds the command line arguments. They are indicated by $1, $2, . . ., $9. After $9, more positional parameter
+can be introduced as $(10), $(99), $(108) etc.
+
+$#	
+	Holds the number of command line arguments passed to the program. Useful for extracting them with a loop.
+
+$@
+	Holds all the command line argument passed to the script.
+
+$0
+	Holds the script name.
+
+$$
+	Holds the process ID of the current shell.
+
+$?
+	Holds the exit code of the last executed process.
+	
+
+# shift
+
+Syntax:
+-------
+	shift [n]
+
+Description:
+------------
+	Shifts the positional parameter. It renames the positonal parameters as $N+1, $N+2 . . . to $1, $2,... . If [N] isn't provided
+then N=1 is taken as default. So if shift is executed once then $2, $3 etc becomes $1, $2 etc. 
+
+
+# Parameter
