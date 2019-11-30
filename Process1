@@ -1,0 +1,19 @@
+# jobs
+
+Syntax:
+-------
+	jobs [-options] <jobspec>
+	jobs -x [command] <args>
+
+Description:
+------------
+	Lists the jobs according to <jobspec>. Without option, status of all active job is displayed.
+
+Option:
+-------
+	-l		Lists process ID in addition to the normal information.
+	-n		Lists only processes that have changed status since the last notification.
+	-p		Lists process ID only.
+	-r		Restricts output to running jobs.
+	-s		Restricts output to stopped jobs.
+
