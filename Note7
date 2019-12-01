@@ -46,7 +46,7 @@ Syntax:
 
 Description:
 ------------
-	"test" exits with the status determined by [Expression].
+	"test" exits with the status determined by [Expression]. "test" is mostly used as its alias "[".
 
 Expressions can be combined to give complex expressions which will evaluated as such:
 
@@ -103,6 +103,31 @@ specific for these tests. These test syntaxes and positional arguments are given
 Except for -h and -L all the file options dereferences symbolic link.
 
 
+# [[
+
+Syntax:
+-------
+    [[ <expression> ]]
+
+Description:
+------------
+    "[[" can evaluate all the expression as evaluated by "test"/"[". In addition "[[" can evaluate following expressions:
+
+        ( <expression> )    -   Returns the value of the <expression>.
+        ! <expression>      -   Returns true if <expression> is false and vice versa.
+        <expr1> && <expr2>  -   Performs AND operation between <expr1> and <expr2>.
+        <expr1> || <expr2>  -   Performs OR operation between <expr1> and <expr2>.
+        <expr1> == <expr2>  -   If expressions are equal.
+        <expr1> != <expr2>  -   If expressions are inequal.
+        <str> ~= <regx>     -   Evaluate if the string in the right mathces the regular expression.
+
+    In case of "==" and "!=", if the expressions are string then pattern matching is performed using the right string is used as
+pattern against the left string. In case of && and || operator, the right expression is evaluated only when necessary. For example,
+if the left expression is false, then && will always return false and in case of || if the left expression is true the overall
+expression will also be true. So in such cases the right expression isn't evaluated. This logic also applies when these operator
+are used in command line.
+
+
 # exit
 
 Syntax:
@@ -124,7 +149,6 @@ Description:
 ------------
 	Causes a function or sourced script to exit with the return value [n]. If [n] is omitted, exit with the return value of the last executed
 command. 
-
 
 
 # read
