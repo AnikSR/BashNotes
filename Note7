@@ -119,7 +119,7 @@ Description:
         <expr1> || <expr2>  -   Performs OR operation between <expr1> and <expr2>.
         <expr1> == <expr2>  -   If expressions are equal.
         <expr1> != <expr2>  -   If expressions are inequal.
-        <str> ~= <regx>     -   Evaluate if the string in the right mathces the regular expression.
+        <str> ~= <regx>     -   Evaluate if the string in the left mathces the regular expression in the right.
 
     In case of "==" and "!=", if the expressions are string then pattern matching is performed using the right string is used as
 pattern against the left string. In case of && and || operator, the right expression is evaluated only when necessary. For example,
