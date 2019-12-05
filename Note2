@@ -15,3 +15,59 @@ Options:
 	-m	Display usage in pseudo-manpage format. Unlike man it doesn't display wiht "less" by default.
 	-s	Output only a short synopsis for each topic matching <pattern>.
 
+# stat
+
+Syntax:
+-------
+	stat [opts] <FILE>
+
+Description:
+------------
+	Display file or file system status.
+
+Options:
+--------
+	-L	--dereference		Follow link.
+	-f	--file-system		Display file system status instead of file status.
+	-c	--format=FORMAT		Use specific format instead of default. Print newline after each use of format.
+	n/a	--print=FORMAT		Like "-c" but interpret backslash escape character as well. Doesn't print trailing newline by default.
+	-t	--terse				Print information in terse form.
+	n/a	--help				Print help text and exit.
+	n/a	--version			Print version information and exit.
+
+Valid format sequences:
+-----------------------
+	%a		Access rights in octal, ('#' and '0' printf flag). For file system (-f command), free block availabe to non-superuser.
+	%b		Number of blocks allocated. Or, total data blocks in file system.
+	%d		Device number of the file in decimal. Free file nodes in case of file system.
+	%f		Raw mode in hex for file, free blocks in case of file system.
+	%i		Inode number of the file. In case of file system, ID in hex.
+	%n		File name.
+	%s		Total size of file in bytes. Block size in case of file system.
+	%t		Major device type in hex for character/block device special files. In case of file system, file system type in hex.
+	%T		Major device type in human readable form. For file system, type in human readable form.
+	
+
+Following formats apply to file system only.
+	%c		Total file nodes in file system when used with "-f" command.
+	%l		Maximum length of filenames.
+
+
+Following formats apply to files only.
+	%C		SELinux security context string.
+	%D		Device number is hex.
+	%F		File type.
+	%g		Group ID of the owner.
+	%G		Group name of the owner.
+	%h		Number of hard links.
+	%m		Mount point.
+	%N		Quoted file name with dereference if symbolic link.
+	%o		Optimal IO transfer hints.
+	%u		User ID of the owner.
+	%U		User name of owner.
+	%w		Time of birth in human readable form. "-" if unknown.
+	%W		Time of birth expressed in seconds since Epoch. 0 if unknown.
+	%x		Time of last access in human readable form.
+	%X		Time of last access expressed in seconds since Epoch.
+	%y		Time of last modification in human readable form.
+	%Y		Time of last modification expressed in seconds since Epoch.
